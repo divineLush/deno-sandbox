@@ -28,3 +28,10 @@ const fetchLaunchData = async () => {
 };
 
 fetchLaunchData();
+
+// import.meta contains metadata about the program
+if (import.meta.main) {
+  // this code won't run when imported in another module
+  log.info("Downloaded data");
+  console.log(import.meta);
+}
