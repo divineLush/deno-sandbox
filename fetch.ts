@@ -2,7 +2,8 @@ import * as log from "https://deno.land/std/log/mod.ts";
 
 interface Launch {
   flightNumber: number;
-  mission: number;
+  mission: string;
+  rocket: string;
 }
 
 const launches = new Map<number, Launch>();
@@ -17,6 +18,7 @@ const fetchLaunchData = async () => {
     const flightData = {
       flightNumber: launch["flight_number"],
       mission: launch["mission_name"],
+      rocket: launch["rocket"]["rocket_name"],
     };
 
     launches.set(flightData.flightNumber, flightData);
